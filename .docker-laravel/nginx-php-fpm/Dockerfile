@@ -29,7 +29,6 @@ COPY ./database /var/www/database
 
 COPY ./composer.json /var/www/composer.json
 COPY ./composer.lock /var/www/composer.lock
-RUN php -m
 RUN composer install --no-scripts
 
 COPY ./package.json /var/www/package.json
@@ -40,7 +39,8 @@ RUN npm install
 # Test backend
 ###########################################################################
 COPY . /var/www
-RUN composer run-script test
+RUN php artisan key:generate --ansi && \
+    composer run-script test
 
 ###########################################################################
 # Test frontend
