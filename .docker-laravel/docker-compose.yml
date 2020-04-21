@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+### Workspace Utilities ##################################
+  workspace:
+    build:
+      context: ./workspace
+    volumes:
+      - ../:/var/www
+    tty: true
+
+### MySQL ################################################
+  mysql:
+    build:
+      context: ./mysql
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=default
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=UTC
+    volumes:
+      - ./.data/mysql:/var/lib/mysql
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+
+### NGINX Server + PHP-FPM #########################################
+  nginx-php-fpm:
+    build:
+      context: ./../
+      dockerfile: ./.docker-laravel/nginx-php-fpm/Dockerfile
+      args:
+        - INSTALL_XDEBUG=true
+    volumes:
+      - ../:/var/www
+    expose:
+      - 9000
+    ports:
+      - "80:80"
+      - "443:443"

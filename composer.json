@@ -59,6 +59,7 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "test": "@php vendor/phpunit/phpunit/phpunit -v --log-junit phpunit-test-results.xml --coverage-text --debug --colors=never"
     }
 }
