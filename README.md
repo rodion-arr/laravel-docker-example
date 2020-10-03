@@ -43,11 +43,13 @@ cp .env.example .env
 Run workspace container and install dependencies
 ```bash
 cd .docker-laravel
+docker-compose up -d mysql
 docker-compose up -d workspace
-docker-compose exec workspace bash
+docker-compose exec workspace zsh
 composer install
 npm install
 php artisan key:generate
+php artisan migrate
 exit
 ```
 Build and run web-server container
@@ -64,6 +66,8 @@ git clone https://github.com/rodion-arr/laravel-docker-example.git
 cd laravel-docker-example
 cp .env.example .env
 ```
+
+Update your .env file to point application to correct remote MySQL database
 Build and run web-server container. It will install all dependencies and run tests.
 ```bash
 cd .docker-laravel
