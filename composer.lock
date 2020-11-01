@@ -60,22 +60,22 @@
         },
         {
             "name": "bacon/bacon-qr-code",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bacon/BaconQrCode.git",
-                "reference": "add6d9ff97336b62f95a3b94f75cea4e085465b2"
+                "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/add6d9ff97336b62f95a3b94f75cea4e085465b2",
-                "reference": "add6d9ff97336b62f95a3b94f75cea4e085465b2",
+                "url": "https://api.github.com/repos/Bacon/BaconQrCode/zipball/3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
+                "reference": "3e9d791b67d0a2912922b7b7c7312f4b37af41e4",
                 "shasum": ""
             },
             "require": {
-                "dasprid/enum": "^1.0",
+                "dasprid/enum": "^1.0.3",
                 "ext-iconv": "*",
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "require-dev": {
                 "phly/keep-a-changelog": "^1.4",
@@ -105,7 +105,7 @@
             ],
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
-            "time": "2020-07-30T16:40:58+00:00"
+            "time": "2020-10-30T02:02:47+00:00"
         },
         {
             "name": "brick/math",
@@ -925,16 +925,16 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.99",
+            "version": "v1.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "0ffea34489b258a2709bfe93a9553e1efa5d1904"
+                "reference": "bffc10d3090bc99231c17f9960506ab51e9d25f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/0ffea34489b258a2709bfe93a9553e1efa5d1904",
-                "reference": "0ffea34489b258a2709bfe93a9553e1efa5d1904",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/bffc10d3090bc99231c17f9960506ab51e9d25f5",
+                "reference": "bffc10d3090bc99231c17f9960506ab51e9d25f5",
                 "shasum": ""
             },
             "require": {
@@ -970,7 +970,7 @@
                 "crawlerdetect",
                 "php crawler detect"
             ],
-            "time": "2020-08-25T21:35:55+00:00"
+            "time": "2020-10-24T09:23:11+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -1053,16 +1053,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.6.0",
+            "version": "v1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "395d4326b04a112412368fdffb6e66809bef5c2a"
+                "reference": "55e4b0fc750d3d2abed4c314105db269043e6cb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/395d4326b04a112412368fdffb6e66809bef5c2a",
-                "reference": "395d4326b04a112412368fdffb6e66809bef5c2a",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/55e4b0fc750d3d2abed4c314105db269043e6cb7",
+                "reference": "55e4b0fc750d3d2abed4c314105db269043e6cb7",
                 "shasum": ""
             },
             "require": {
@@ -1108,7 +1108,7 @@
                 "auth",
                 "laravel"
             ],
-            "time": "2020-09-29T17:35:46+00:00"
+            "time": "2020-10-20T15:44:56+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1275,16 +1275,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v1.3.1",
+            "version": "v1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "6e4885f81cb863959f2ff101d170eed6d33ce7be"
+                "reference": "872ba5d811f8451fd6b5f61a0422ac303e6f4048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/6e4885f81cb863959f2ff101d170eed6d33ce7be",
-                "reference": "6e4885f81cb863959f2ff101d170eed6d33ce7be",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/872ba5d811f8451fd6b5f61a0422ac303e6f4048",
+                "reference": "872ba5d811f8451fd6b5f61a0422ac303e6f4048",
                 "shasum": ""
             },
             "require": {
@@ -1333,7 +1333,7 @@
                 "laravel",
                 "tailwind"
             ],
-            "time": "2020-09-29T17:46:46+00:00"
+            "time": "2020-10-27T21:28:35+00:00"
         },
         {
             "name": "laravel/sanctum",
