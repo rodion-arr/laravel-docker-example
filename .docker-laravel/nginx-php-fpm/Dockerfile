@@ -282,7 +282,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
 ARG INSTALL_XDEBUG=false
 
 RUN if [ ${INSTALL_XDEBUG} = true ]; then \
-  pecl install xdebug-2.9.0 && \
+  pecl install xdebug-3.0.1 && \
   docker-php-ext-enable xdebug \
 ;fi
 
