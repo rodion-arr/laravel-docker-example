@@ -1,20 +1,20 @@
-FROM laradock/workspace:latest-7.4 AS build
+FROM laradock/workspace:latest-8.0 AS build
 
 ###########################################################################
 # xDebug:
 ###########################################################################
 USER root
 
-RUN apt-get install -y php7.4-xdebug && \
-    sed -i 's/^;//g' /etc/php/7.4/cli/conf.d/20-xdebug.ini
+RUN apt-get install -y php8.0-xdebug && \
+    sed -i 's/^;//g' /etc/php/8.0/cli/conf.d/20-xdebug.ini
 
 # ADD for REMOTE debugging
-COPY ./.docker-laravel/nginx-php-fpm/xdebug.ini /etc/php/7.4/cli/conf.d/xdebug.ini
+COPY ./.docker-laravel/nginx-php-fpm/xdebug.ini /etc/php/8.0/cli/conf.d/xdebug.ini
 
 ###########################################################################
 # Install Node
 ###########################################################################
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - && \
     apt-get install -y nodejs && \
     node -v && \
     npm -v
@@ -42,18 +42,12 @@ COPY . /var/www
 RUN php artisan key:generate --ansi && \
     composer run-script test
 
-###########################################################################
-# Test frontend
-###########################################################################
-RUN npm run test-ci
-
 RUN composer install --no-dev --no-interaction --prefer-dist && \
     composer dumpautoload -o && \
     npm run prod
 
 # clean-up
 RUN rm -rf .docker-laravel && \
-    rm -rf azure-pipelines-templates && \
     rm -rf coverage && \
     rm -rf database && \
     rm -rf database-schema && \
@@ -71,7 +65,6 @@ RUN rm -rf .docker-laravel && \
     rm -rf .gitignore && \
     rm -rf .htaccess && \
     rm -rf .phpunit.result.cache && \
-    rm -rf azure-pipelines.yml && \
     rm -rf junit.xml && \
     rm -rf package-lock.json && \
     rm -rf package.json && \
@@ -83,7 +76,7 @@ RUN rm -rf .docker-laravel && \
 ###########################################################################
 # Final step
 ###########################################################################
-FROM php:7.4.2-fpm-alpine3.11 AS final
+FROM php:8.0-fpm-alpine AS final
 
 ENV php_conf /usr/local/etc/php-fpm.conf
 ENV fpm_conf /usr/local/etc/php-fpm.d/www.conf
@@ -273,7 +266,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
       --with-jpeg && \
     #curl iconv session
     #docker-php-ext-install pdo_mysql pdo_sqlite mysqli mcrypt gd exif intl xsl json soap dom zip opcache && \
-    docker-php-ext-install iconv pdo_mysql pdo_sqlite pgsql pdo_pgsql mysqli gd exif intl xsl json soap dom zip opcache
+    docker-php-ext-install iconv pdo_mysql pdo_sqlite pgsql pdo_pgsql mysqli gd exif intl xsl soap zip opcache
 
 ###########################################################################
 # xDebug:
@@ -302,8 +295,6 @@ RUN pecl install -o -f redis && \
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php --quiet --install-dir=/usr/bin --filename=composer && \
     rm composer-setup.php && \
-    pip3 install -U pip && \
-    pip3 install -U certbot && \
     mkdir -p /etc/letsencrypt/webrootauth && \
     apk del gcc musl-dev linux-headers libffi-dev augeas-dev python3-dev make autoconf
 

@@ -12,7 +12,7 @@
 # Note: Base Image name format {image-tag}-{php-version}
 #
 
-ARG LARADOCK_PHP_VERSION=7.4
+ARG LARADOCK_PHP_VERSION=8.0
 FROM laradock/workspace:latest-${LARADOCK_PHP_VERSION}
 
 ARG LARADOCK_PHP_VERSION
