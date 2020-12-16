@@ -26,8 +26,9 @@ Docker images are located in [.docker-laravel](https://github.com/rodion-arr/lar
         - Prepare files for Stage 2 (clean-up dev dependencies, logs, node_modules)
     - Stage 2 (web-server, PHP)
         - Based on richarvey/nginx-php-fpm Image
-        - PHP 7.4
+        - PHP 8
         - Nginx
+        - Xdebug 3 (by configuration, false by default)
         - Copy only required for project run-time files from Stage 1 (reduces Image size)
 
 ## Prerequisites
